@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrácia</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <header>
+        <h1>SO Air Quality Sprint App</h1>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Registrácia</h2>
+            <form action="index.html" method="POST">
+                <label for="first-name">Meno</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Zadajte meno" required>
+
+                <label for="last-name">Priezvisko</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Zadajte priezvisko" required>
+
+                <label for="E-mail">E-mail</label>
+                <input type="text" id="E-mail" name="E-mail" placeholder="Zadajte E-mail" required>
+
+                <label for="telefon">Telefón</label>
+                <input type="text" id="telefon" name="telefon" placeholder="Zadajte telefónne číslo" required>
+
+                <label for="password">Heslo</label>
+                <input type="password" id="password" name="password" placeholder="Zadajte heslo" required>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Súhlasím s obchodnými podmienkami</label>
+                </div>
+
+                <button type="submit">Registrovať</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

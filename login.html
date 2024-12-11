@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prihlásenie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="uvod.css">
+</head>
+<body>
+    <h1>SO Air Quality sprint app</h1>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Prihlásenie</h2>
+            <form action="index.html" method="GET">
+                <label for="nickname">E-mail</label>
+                <input type="text" id="nickname" name="nickname" required>
+
+                <label for="password">Heslo</label>
+                <input type="password" id="password" name="password" required>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Zapamätať</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Nie som robot</label>
+                </div>
+                
+                <button type="submit">Prihlásiť</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="images/runner.jpg" alt="Running person">
+        </div>
+    </div>
+</body>
+</html>

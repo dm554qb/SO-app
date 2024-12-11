@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mapa.css">
+    <link rel="stylesheet" href="uvod.css">
+    <link rel="stylesheet" href="libs/leaflet.css">
+    <title>Mapa Prešov</title>
+    <style>
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        #map {
+            flex: 3;
+            width: 700px;
+            height: 560px;
+            border: none;
+            border-radius: 10px;
+        }
+        .data-section {
+            flex: 1;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+        .data-section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #ffeb3b;
+        }
+        .data-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .data-section li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .data-section span {
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+        .file-input-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .styled-file-input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80%;
+            max-width: 300px;
+        }
+        .styled-label {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .styled-button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .styled-button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SO Air Quality sprint app</h1>
+        <nav>
+            <a href="index.html" class="login-button1">Úvod</a>
+            <a href="pocasie.html" class="login-button1">Počasie</a>
+            <a href="mapa.html" class="login-button1">Mapa</a>
+            <a href="profil.html" class="login-button1">Profil</a>
+            <a href="registration.html" class="login-button">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="file-input-container">
+            <label for="gpxInput" class="styled-label">Vyberte GPX súbor:</label>
+            <input type="file" id="gpxInput" accept=".gpx" class="styled-file-input">
+        </div>
+
+        <div class="file-input-container">
+            <label for="sensorCSVInput" class="styled-label">Vyberte CSV so senzorovými dátami:</label>
+            <input type="file" id="sensorCSVInput" accept=".csv" class="styled-file-input">
+        </div>
+
+        <div class="file-input-container">
+            <button id="processButton" class="styled-button">Spustiť spracovanie</button>
+        </div>
+
+        <p class="status-text" id="mergeStatus"></p>
+
+        <div class="main-container">
+            <div id="map"></div>
+            <div class="data-section">
+                <h2>Údaje z mapy</h2>
+                <ul>
+                    <li><h3 class="sidebar-title">Minimálne hodnoty:</h3><span id="minPM"></span></li>
+                    <li><h3 class="sidebar-title">Maximálne hodnoty:</h3><span id="maxPM"></span></li>
+                    <li><h3 class="sidebar-title">Priemerné hodnoty:</h3><span id="avgPM"></span></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="libs/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://unpkg.com/papaparse/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
