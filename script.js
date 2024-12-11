@@ -1,3 +1,4 @@
+
 // Skript: Spojenie gpx_csv_processing.js a map_display.js do jedného script.js
 
 document.getElementById('processButton').addEventListener('click', () => {
