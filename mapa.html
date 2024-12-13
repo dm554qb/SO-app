@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mapa.css">
-    <link rel="stylesheet" href="uvod.css">
     <title>Mapa</title>
+    <link rel="stylesheet" href="styles/mapa.css">
 </head>
-<body>
-    <header>
-        <h1>SO Air Quality sprint app</h1>
-        <nav>
-            <a href="index.html" class="login-button1">Úvod</a>
-            <a href="pocasie.html" class="login-button1">Počasie</a>
-            <a href="mapa.html" class="login-button1">Mapa</a>
-            <a href="profil.html" class="login-button1">Profil</a>
-            <a href="registration.html" class="login-button">Login</a>
+<body class="map-page">
+    <header class="map-page">
+        <h1 class="header-title">SO Air Quality Sprint App</h1>
+        <nav class="navbar map-page">
+            <a href="index.html" class="nav-link">Úvod</a>
+            <a href="pocasie.html" class="nav-link">Počasie</a>
+            <a href="mapa.html" class="nav-link active">Mapa</a>
+            <a href="profil.html" class="nav-link">Profil</a>
+            <a href="login.html" class="nav-link login-button">Login</a>
         </nav>
     </header>
-    <main>
+    <main class="main-container">
         <h1>Výber mapy</h1>
         <div class="map-selection">
             <ul>
-                <li><a href="mapa_kosice.html">Mapa Košice</a></li>
-                <li><a href="mapa_presov.html">Mapa Prešov</a></li>
-                <li><a href="mapa_batizovce.html">Mapa Batizovce</a></li>
+                <li><a href="mapa_kosice.html" class="nav-link">Mapa Košice</a></li>
+                <li><a href="mapa_presov.html" class="nav-link">Mapa Prešov</a></li>
+                <li><a href="mapa_batizovce.html" class="nav-link">Mapa Batizovce</a></li>
             </ul>
         </div>
     </main>
+    <footer class="map-page">
+        <p>&copy; 2024 SO Air Quality Sprint App. Všetky práva vyhradené.</p>
+    </footer>
 </body>
 </html>

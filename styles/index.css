@@ -1,0 +1,126 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Specific styles for index.html */
+body.index-page {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header.map-page {
+    background-color: #444;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.map-page .header-title {
+    font-size: 2.5rem;
+    color: #ffeb3b;
+}
+
+.navbar.map-page {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar.map-page .nav-link {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar.map-page .nav-link:hover {
+    background-color: #ffeb3b;
+    color: #333;
+}
+
+.navbar.map-page .login-button {
+    background-color: #ffeb3b;
+    color: #333;
+    font-weight: bold;
+}
+
+.intro-container.index-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    max-width: 960px;
+    margin: 20px auto;
+    background: linear-gradient(120deg, #444, #555);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.intro-container.index-page .text-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.intro-container.index-page .text-content h2 {
+    font-size: 2.2rem;
+    color: #ffeb3b;
+    margin-bottom: 15px;
+}
+
+.intro-container.index-page .text-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.intro-container.index-page .intro-image {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.map-selection.index-page {
+    text-align: center;
+    padding: 30px 10px;
+    max-width: 960px;
+    margin: auto;
+}
+
+.map-selection.index-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.map-selection.index-page .map-link {
+    background-color: #ffeb3b;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.map-selection.index-page .map-link:hover {
+    background-color: #fdd835;
+}
+
+footer.index-page {
+    background-color: #333;
+    text-align: center;
+    padding: 15px;
+    color: #f4f4f4;
+    font-size: 0.9rem;
+    border-top: 2px solid #555;
+}
