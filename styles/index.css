@@ -29,6 +29,7 @@ header.map-page .header-title {
     color: #ffeb3b;
 }
 
+/* Navbar styles */
 .navbar.map-page {
     display: flex;
     gap: 20px;
@@ -46,6 +47,12 @@ header.map-page .header-title {
 .navbar.map-page .nav-link:hover {
     background-color: #ffeb3b;
     color: #333;
+}
+
+.navbar.map-page .nav-link.active {
+    background-color: #ffeb3b;
+    color: #333;
+    font-weight: bold;
 }
 
 .navbar.map-page .login-button {
