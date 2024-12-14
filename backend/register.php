@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         // Kontrola, či e-mail už existuje
         $stmt = $pdo->prepare('SELECT COUNT(*) FROM users WHERE email = :email');
-        $stmt->execute(['email' => $email]);
+        $stmt->execute([':email' => $email]);
         $emailExists = $stmt->fetchColumn();
 
         if ($emailExists > 0) {
@@ -38,8 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':password' => $hashedPassword
         ]);
 
-        $_SESSION['success'] = 'Registrácia úspešná! Teraz sa môžete prihlásiť.';
-        header('Location: ../login.php');
+        // Nastavenie správy a presmerovanie na index.php
+        $_SESSION['success'] = 'Registrácia bola úspešná! Teraz sa môžete prihlásiť.';
+        header('Location: ../index.php');
         exit;
 
     } catch (PDOException $e) {

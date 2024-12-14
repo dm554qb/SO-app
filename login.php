@@ -8,51 +8,12 @@ session_start(); // Spustenie session na spracovanie správ
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prihlásenie</title>
     <link rel="stylesheet" href="styles/login.css">
-    <style>
-        .alert {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            padding: 15px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            animation: fadeOut 5s forwards;
-        }
-
-        .alert.success {
-            background-color: #4caf50;
-            color: #fff;
-        }
-
-        .alert.error {
-            background-color: #f44336;
-            color: #fff;
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-    </style>
 </head>
 <body class="index-page">
     <header class="map-page">
         <h1 class="header-title">SO Air Quality Sprint App</h1>
         <nav class="navbar map-page">
-            <a href="index.html" class="nav-link">Úvod</a>
+            <a href="index.php" class="nav-link">Úvod</a>
             <a href="pocasie.html" class="nav-link">Počasie</a>
             <a href="mapa.html" class="nav-link">Mapa</a>
             <a href="profil.html" class="nav-link">Profil</a>

@@ -10,13 +10,27 @@
     <header class="map-page">
         <h1 class="header-title">SO Air Quality Sprint App</h1>
         <nav class="navbar map-page">
-            <a href="index.html" class="nav-link active">Úvod</a>
+            <a href="index.php" class="nav-link active">Úvod</a>
             <a href="pocasie.html" class="nav-link">Počasie</a>
             <a href="mapa.html" class="nav-link">Mapa</a>
             <a href="profil.html" class="nav-link">Profil</a>
             <a href="login.php" class="nav-link login-button">Login</a>
         </nav>
     </header>
+
+    <?php
+    session_start();
+    // Zobrazenie úspešnej alebo chybovej správy
+    if (isset($_SESSION['success'])) {
+        echo '<div class="success-message">' . $_SESSION['success'] . '</div>';
+        unset($_SESSION['success']);
+    }
+    if (isset($_SESSION['error'])) {
+        echo '<div class="error-message">' . $_SESSION['error'] . '</div>';
+        unset($_SESSION['error']);
+    }
+    ?>
+
     <main>
         <section class="intro-container index-page">
             <div class="text-content">
@@ -32,9 +46,20 @@
             <div class="image-content">
                 <img src="images/runner2.jpg" alt="Running person" class="intro-image">
             </div>
+        </section>
     </main>
     <footer class="index-page footer">
         <p>&copy; 2024 SO Air Quality Sprint App. Všetky práva vyhradené.</p>
     </footer>
+
+    <script>
+        // Automatické skrytie správy po 5 sekundách
+        setTimeout(() => {
+            const message = document.querySelector('.success-message, .error-message');
+            if (message) {
+                message.style.display = 'none';
+            }
+        }, 5000); // 5000 ms = 5 sekúnd
+    </script>
 </body>
 </html>
