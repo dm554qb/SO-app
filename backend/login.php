@@ -1,23 +1,32 @@
 <?php
-require 'config.php';
+require_once 'config.php';
+session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
-    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->bind_result($hashed_password);
-    $stmt->fetch();
+    try {
+        // Získanie používateľa podľa e-mailu
+        $stmt = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+        $stmt->execute(['email' => $email]);
+        $user = $stmt->fetch();
 
-    if (password_verify($password, $hashed_password)) {
-        echo "Prihlásenie úspešné!";
-    } else {
-        echo "Nesprávne prihlasovacie údaje.";
+        // Overenie používateľa a hesla
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['success'] = 'Prihlásenie úspešné!';
+            header('Location: ../index.html'); // Presmerovanie na hlavnú stránku
+            exit;
+        } else {
+            $_SESSION['error'] = 'Nesprávne meno alebo heslo.';
+            header('Location: ../login.php'); // Návrat na prihlasovaciu stránku
+            exit;
+        }
+    } catch (PDOException $e) {
+        $_SESSION['error'] = 'Chyba servera. Skúste to neskôr.';
+        header('Location: ../login.php');
+        exit;
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>

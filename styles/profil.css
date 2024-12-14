@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Background and body styles */
+body.map-page {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header styles */
+header.map-page {
+    background-color: #444;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.map-page .header-title {
+    font-size: 2.5rem;
+    color: #ffeb3b;
+}
+
+/* Navbar styles */
+.navbar.map-page {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar.map-page .nav-link {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar.map-page .nav-link:hover {
+    background-color: #ffeb3b;
+    color: #333;
+}
+
+.navbar.map-page .nav-link.active {
+    background-color: #ffeb3b;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar.map-page .login-button {
+    background-color: #ffeb3b;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Profile container */
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin: 3rem auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile photo */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 2rem;
+    object-fit: cover;
+    background-color: #444;
+}
+
+/* User information */
+.profile-info p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.profile-info p strong {
+    color: #ffeb3b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin: 0 0 1rem;
+    }
+}
