@@ -38,7 +38,7 @@ session_start();
             <h2>Registrácia</h2>
             <form action="backend/register.php" method="POST">
                 <div class="form-group">
-                    <label for="name">Meno:</label>
+                    <label for="name">Použivateľské meno:</label>
                     <input type="text" id="name" name="name" placeholder="Vaše meno" required>
                 </div>
                 <div class="form-group">
