@@ -1,5 +1,5 @@
 <?php
-session_start(); // Spustenie session na spracovanie správ
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="sk">
@@ -22,13 +22,13 @@ session_start(); // Spustenie session na spracovanie správ
     </header>
 
     <?php
-    // Zobrazenie správy po prihlásení
+    // Zobrazenie úspešnej alebo chybovej správy
     if (isset($_SESSION['success'])) {
-        echo "<div class='alert success'>{$_SESSION['success']}</div>";
+        echo '<div class="success-message">' . $_SESSION['success'] . '</div>';
         unset($_SESSION['success']);
     }
     if (isset($_SESSION['error'])) {
-        echo "<div class='alert error'>{$_SESSION['error']}</div>";
+        echo '<div class="error-message">' . $_SESSION['error'] . '</div>';
         unset($_SESSION['error']);
     }
     ?>
@@ -54,5 +54,15 @@ session_start(); // Spustenie session na spracovanie správ
     <footer class="index-page footer">
         <p>&copy; 2024 SO Air Quality Sprint App. Všetky práva vyhradené.</p>
     </footer>
+
+    <script>
+        // Automatické skrytie správ po 5 sekundách
+        setTimeout(() => {
+            const message = document.querySelector('.success-message, .error-message');
+            if (message) {
+                message.style.display = 'none';
+            }
+        }, 5000); // 5000 ms = 5 sekúnd
+    </script>
 </body>
 </html>
