@@ -10,10 +10,10 @@
     <header class="map-page">
         <h1 class="header-title">SO Air Quality Sprint App</h1>
         <nav class="navbar map-page">
-            <a href="index.php" class="nav-link">Úvod</a>
-            <a href="pocasie.php" class="nav-link">Počasie</a>
-            <a href="mapa.php" class="nav-link">Mapa</a>
-            <a href="profil.php" class="nav-link">Profil</a>
+            <a href="index.html" class="nav-link">Úvod</a>
+            <a href="pocasie.html" class="nav-link">Počasie</a>
+            <a href="mapa.html" class="nav-link">Mapa</a>
+            <a href="profil.html" class="nav-link">Profil</a>
             <a href="login.php" class="nav-link login-button">Login</a>
         </nav>
     </header>
