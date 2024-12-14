@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -19,7 +22,6 @@
     </header>
 
     <?php
-    session_start();
     // Zobrazenie úspešnej alebo chybovej správy
     if (isset($_SESSION['success'])) {
         echo '<div class="success-message">' . $_SESSION['success'] . '</div>';
