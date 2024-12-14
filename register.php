@@ -22,7 +22,6 @@ session_start();
     </header>
 
     <?php
-    session_start();
     if (isset($_SESSION['success'])) {
         echo "<div class='overlay show' id='successMessage'>{$_SESSION['success']}</div>";
         unset($_SESSION['success']);
