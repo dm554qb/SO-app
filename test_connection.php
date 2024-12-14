@@ -1,5 +1,6 @@
 <?php
-require_once 'config.php';
+require_once 'backend/config.php';
+
 
 try {
     $stmt = $pdo->query('SELECT NOW() AS current_time');
