@@ -1,5 +1,10 @@
-# Použitie oficiálneho PHP 8 obrazu s Apache
+# Použitie oficiálneho PHP obrazu s Apache
 FROM php:8.1-apache
+
+# Inštalácia rozšírení potrebných pre PostgreSQL
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && docker-php-ext-install pdo_pgsql
 
 # Skopírovanie všetkých súborov do webového adresára
 COPY . /var/www/html/
@@ -10,9 +15,6 @@ WORKDIR /var/www/html
 # Nastavenie oprávnení
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
-
-# Povolenie rozšírení PHP potrebných pre PDO a MySQL
-RUN docker-php-ext-install pdo pdo_mysql
 
 # Port, ktorý Docker bude počúvať
 EXPOSE 80
