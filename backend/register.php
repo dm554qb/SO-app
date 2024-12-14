@@ -1,16 +1,32 @@
 <?php
-require_once 'config.php'; // Pripojenie k databáze
+require_once 'config.php';
+
+try {
+    $sql = "CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )";
+
+    $pdo->exec($sql);
+    echo "Tabuľka 'users' bola úspešne vytvorená.";
+} catch (PDOException $e) {
+    echo "Chyba pri vytváraní tabuľky: " . $e->getMessage();
+}
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
-    $confirmPassword = trim($_POST['confirm-password']);
+    $confirm_password = trim($_POST['confirm-password']);
 
-    // Overenie hesiel
-    if ($password !== $confirmPassword) {
-        $_SESSION['error'] = 'Heslá sa nezhodujú. Skúste znova.';
+    // Validácia hesla
+    if ($password !== $confirm_password) {
+        $_SESSION['error'] = 'Heslá sa nezhodujú.';
         header('Location: ../register.php');
         exit;
     }
@@ -19,6 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     try {
+        // Kontrola, či e-mail už existuje
+        $stmt = $pdo->prepare('SELECT COUNT(*) FROM users WHERE email = :email');
+        $stmt->execute(['email' => $email]);
+        $emailExists = $stmt->fetchColumn();
+
+        if ($emailExists > 0) {
+            $_SESSION['error'] = 'E-mail už existuje.';
+            header('Location: ../register.php');
+            exit;
+        }
+
+        // Vloženie nového používateľa
         $stmt = $pdo->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
         $stmt->execute([
             ':name' => $name,
@@ -26,15 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':password' => $hashedPassword
         ]);
 
-        $_SESSION['success'] = 'Registrácia prebehla úspešne.';
+        $_SESSION['success'] = 'Registrácia úspešná! Teraz sa môžete prihlásiť.';
+        header('Location: ../login.php');
+        exit;
+
     } catch (PDOException $e) {
-        if ($e->getCode() == 23000) {
-            $_SESSION['error'] = 'Používateľ s týmto e-mailom už existuje.';
-        } else {
-            $_SESSION['error'] = 'Chyba: ' . $e->getMessage();
-        }
+        $_SESSION['error'] = 'Chyba pri registrácii: ' . $e->getMessage();
+        header('Location: ../register.php');
+        exit;
     }
-    header('Location: ../register.php');
-    exit;
 }
 ?>
