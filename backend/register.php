@@ -1,5 +1,7 @@
 <?php
 require_once 'config.php';
+session_start();
+
 
 try {
     $sql = "CREATE TABLE IF NOT EXISTS users (
@@ -16,7 +18,6 @@ try {
     echo "Chyba pri vytváraní tabuľky: " . $e->getMessage();
 }
 
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = trim($_POST['name']);
