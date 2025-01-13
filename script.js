@@ -264,7 +264,7 @@ function displayDataOnMap(data) {
             PM2.5: ${pm25} µg/m³<br>
             PM4.0: ${pm4} µg/m³<br>
             PM10.0: ${pm10} µg/m³<br>
-            Vlhkosť: ${humidity} %<br>
+            Vlhkosť: ${vlhkosť} %<br>
             Teplota: ${temperature} °C<br>
             <strong>${safetyMessage}</strong>`;
         marker.bindPopup(popupContent);
